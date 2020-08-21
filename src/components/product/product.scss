@@ -96,3 +96,23 @@
     }
   }
 }
+
+.disabled {
+  .product-info {
+    background-image: url('./images/photo-disabled.png');
+    color: #b3b3b3;
+    cursor: default;
+  }
+
+  .product-info:hover .product-weight {
+    background-color: #b3b3b3;
+  }
+
+  .product-weight {
+    background-color: #b3b3b3;
+  }
+
+  .product-action {
+    color: #ffff66;
+  }
+}

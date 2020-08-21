@@ -17,8 +17,10 @@ const Product = ({ descr, features, weight, disabled }) => {
     <span>Печалька, {descr} закончился.</span> :
     <span>Чего сидишь? Порадуй котэ, <a href="/">купи</a></span>;
 
+  const classNames = (disabled) ? 'product disabled' : 'product';
+
   return (
-    <div className="product">
+    <div className={classNames}>
       <div className="product-info">
         <header className="product-header">Сказочное заморское яство</header>
         <main>
