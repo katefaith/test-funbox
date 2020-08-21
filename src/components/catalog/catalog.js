@@ -3,13 +3,22 @@ import Product from '../product/product';
 
 import './catalog.scss';
 
-const Catalog = () => {
+const Catalog = ({ products }) => {
+
+  const elements = products.map((element) => {
+
+    const { id, ...elementProps } = element;
+
+    return (
+      <Product
+        key={id}
+        {...elementProps} />
+    );
+  });
 
   return (
     <div className="catalog">
-      <Product />
-      <Product />
-      <Product />
+      {elements}
     </div>
   );
 }
