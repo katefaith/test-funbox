@@ -129,3 +129,25 @@ $color-disabled: #b3b3b3;
     color: #ffff66;
   }
 }
+
+.selected {
+  .product-info {
+    border-color: $color-selected;
+
+    &:hover {
+      border-color: $color-selected-hover;
+    }
+  }
+
+  .product-info:hover .product-weight {
+    background-color: $color-selected-hover;
+  }
+
+  // .product-header {
+  //   color: $color-selected;
+  // }
+
+  .product-weight {
+    background-color: $color-selected;
+  }
+}
