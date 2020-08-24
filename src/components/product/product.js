@@ -85,6 +85,7 @@ export default class Product extends React.Component {
           onClick={ this.onProductInfoClick }
           onMouseEnter={ this.onMouseEnterProductInfo }
           onMouseLeave={ this.onMouseLeaveProductInfo }>
+          <div className="product-angle"></div>
           <header className="product-header">
             {(selected && hovered) ? 'Котэ не одобряет?' : 'Сказочное заморское яство'}
           </header>

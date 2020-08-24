@@ -37,11 +37,28 @@ $color-disabled: #b3b3b3;
   background-size: 115%;
   background-position: bottom -82px right -24px;
   background-color: #f2f2f2;
+  clip-path: polygon(44px 0, 100% 0, 100% 100%, 0 100%, 0 44px);
+
   cursor: pointer;
 
   &:hover {
     border-color: $color-default-hover;
+
+    .product-angle {
+      border-color: $color-default-hover;
+    }
   }
+}
+
+.product-angle {
+  position: absolute;
+  box-sizing: border-box;
+  top: -32px;
+  left: -30px;
+  width: 58px;
+  height: 62px;
+  transform: rotate(-45deg);
+  border-bottom: 5px solid $color-default;
 }
 
 .product-header {
@@ -117,6 +134,14 @@ $color-disabled: #b3b3b3;
     cursor: default;
   }
 
+  .product-angle {
+    border-color: $color-disabled;
+  }
+
+  .product-info:hover .product-angle {
+    border-color: $color-disabled;
+  }
+
   .product-info:hover .product-weight {
     background-color: $color-disabled;
   }
@@ -139,6 +164,14 @@ $color-disabled: #b3b3b3;
     }
   }
 
+  .product-angle {
+    border-color: $color-selected;
+  }
+
+  .product-info:hover .product-angle {
+    border-color: $color-selected;
+  }
+
   .product-info:hover .product-weight {
     background-color: $color-selected;
   }
@@ -150,6 +183,10 @@ $color-disabled: #b3b3b3;
   .product-info.hover {
     .product-header {
       color: $color-selected;
+    }
+
+    .product-angle {
+      border-color: $color-selected-hover;
     }
 
     border-color: $color-selected-hover;
