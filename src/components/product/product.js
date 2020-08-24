@@ -6,16 +6,22 @@ export default class Product extends React.Component {
 
   state = {
     selected: false,
+    hovered: false
   }
+
+  productInfoClassNames = 'product-info';
 
   onProductInfoClick = () => {
     if (!this.props.disabled) {
       this.setState((state) => {
         return {
           selected: !state.selected,
+          hovered: false
         }
       });
     }
+
+    this.productInfoClassNames = 'product-info';
   };
 
   onActionClick = (e) => {
@@ -27,9 +33,29 @@ export default class Product extends React.Component {
     }
   };
 
+  onMouseEnterProductInfo = () => {
+    if (this.state.selected) {
+      this.setState( {
+        hovered: true,
+      });
+
+      this.productInfoClassNames = 'product-info hover';
+    }
+  }
+
+  onMouseLeaveProductInfo = () => {
+    if (this.state.selected) {
+      this.setState({
+        hovered: false,
+      });
+
+      this.productInfoClassNames = 'product-info';
+    }
+  }
+
   render() {
     const { descr, features, weight, longDescr, disabled } = this.props;
-    const { selected } = this.state;
+    const { selected, hovered } = this.state;
 
     const feat = features.map((element, index) => {
       return (
@@ -40,24 +66,28 @@ export default class Product extends React.Component {
     });
 
     let action = <span>Чего сидишь? Порадуй котэ, <a href="/">купи</a></span>;
-    let classNames = 'product';
+    let productClassNames = 'product';
 
     if (disabled) {
       action = <span>Печалька, {descr} закончился.</span>;
-      classNames += ' disabled';
+      productClassNames += ' disabled';
     }
 
     if (selected) {
       action = longDescr;
-      classNames += ' selected';
+      productClassNames += ' selected';
     }
 
     return (
-      <div className={classNames}>
+      <div className={productClassNames}>
         <div
-          className="product-info"
-          onClick={ this.onProductInfoClick }>
-          <header className="product-header">Сказочное заморское яство</header>
+          className={this.productInfoClassNames}
+          onClick={ this.onProductInfoClick }
+          onMouseEnter={ this.onMouseEnterProductInfo }
+          onMouseLeave={ this.onMouseLeaveProductInfo }>
+          <header className="product-header">
+            {(selected && hovered) ? 'Котэ не одобряет?' : 'Сказочное заморское яство'}
+          </header>
           <main>
             <h2 className="product-heading">Нямушка</h2>
             <p className="product-descr">{descr}</p>

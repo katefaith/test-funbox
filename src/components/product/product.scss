@@ -140,14 +140,22 @@ $color-disabled: #b3b3b3;
   }
 
   .product-info:hover .product-weight {
-    background-color: $color-selected-hover;
+    background-color: $color-selected;
   }
-
-  // .product-header {
-  //   color: $color-selected;
-  // }
 
   .product-weight {
     background-color: $color-selected;
+  }
+
+  .product-info.hover {
+    .product-header {
+      color: $color-selected;
+    }
+
+    border-color: $color-selected-hover;
+
+    .product-weight {
+      background-color: $color-selected-hover;
+    }
   }
 }
