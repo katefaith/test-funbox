@@ -10,10 +10,11 @@ body {
 
 #root {
   min-height: 100vh;
+  display: flex;
 }
 
 @font-face {
   font-family: 'Exo2.0';
   font-weight: 900;
-  src: url(./fonts/Exo2.0-Thin.otf) format('opentype');
+  src: url(./fonts/Exo20-Thin.woff) format('woff');
 }
